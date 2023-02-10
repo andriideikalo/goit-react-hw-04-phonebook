@@ -12,10 +12,6 @@ export default function App() {
   const [contacts, setContacts] = useState(localStorageContacts);
   const [filter, setFilter] = useState('');
 
-  const onFilterChange = e => {
-    setFilter(e.target.value).toLowerCase();
-  };
-
   const addContact = contact => {
     const id = nanoid();
     const { name } = contact;
@@ -30,8 +26,14 @@ export default function App() {
     ]);
   };
 
+  const onFilterChange = e => {
+    setFilter(e.target.value);
+  };
+
   const getFilteredContacts = () => {
-    return contacts.filter(({ name }) => name.toLowerCase().includes(filter));
+    return contacts.filter(({ name }) =>
+      name.toLowerCase().includes(filter.toLowerCase())
+    );
   };
 
   const deleteItem = id => {
