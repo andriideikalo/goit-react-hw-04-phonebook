@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ContactForm from './ContactForms/ContactForm';
 import { nanoid } from 'nanoid';
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter';
 
@@ -40,16 +40,16 @@ export default function App() {
     setContacts(prevState => prevState.filter(contact => contact.id !== id));
   };
 
-  useEffect(() => {
-    console.log('Notiflix');
-    const contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
-    if (!parsedContacts) {
-      Notiflix.Notify.success('No contacts found. Add contacts. ', {
-        timeout: 3000,
-      });
-    }
-  }, [contacts]);
+  // useEffect(() => {
+  //   console.log('Notiflix');
+  //   const contacts = localStorage.getItem('contacts');
+  //   const parsedContacts = JSON.parse(contacts);
+  //   if (!parsedContacts) {
+  //     Notiflix.Notify.success('No contacts found. Add contacts. ', {
+  //       timeout: 3000,
+  //     });
+  //   }
+  // }, [contacts]);
 
   useEffect(() => {
     console.log('didmount');
